@@ -7,8 +7,8 @@ def getRandomProfession():
 
 
 class Question:
-	def __init__(self, p1: 'Povar', p2: 'Povar'):
-		print(f'{p1} спрашивает {p2}а:'.capitalize())
+	def __init__(self, actor1: 'Cook', actor2: 'Cook'):
+		print(f'{actor1} спрашивает {actor2}а:'.capitalize())
 
 	def whatIsProfession(self, maybe: str):
 		print(f'{p2}, какова твоя профессия?'.capitalize(), f'Ты {maybe}?')
@@ -16,24 +16,24 @@ class Question:
 
 class Reply:
 	message: str
-	sender: 'Povar'
-	def __init__(self, sender: 'Povar', correct: bool):
+	sender: 'Cook'
+	def __init__(self, sender: 'Cook', correct: bool):
 		self.sender = sender
 		if not correct:
 			self.message = f'Нет! Отвечает {sender}.'
 		else:
 			self.message = f'Да, отвечает {sender}.'
 
-	def logPovarAnswer(self):
+	def logCookAnswer(self):
 		print(self.message)
 		return self.sender
 
-class Povar:
+class Cook:
 	def __init__(self, name: str, profession: str):
 		self.name = name
 		self.profession = profession
 
-	def ask(self, povar: 'Povar'):
+	def ask(self, povar: 'Cook'):
 		return Question(self, povar)
 
 	def getProfession(self):
@@ -47,6 +47,6 @@ class Povar:
 
 
 if __name__ == '__main__':
-	p1 = Povar('повар', 'повар')
-	p2 = Povar('повар', 'повар')
-	p1.ask(p2).whatIsProfession(maybe=getRandomProfession()).logPovarAnswer().logMainProfession()
+	p1 = Cook('повар', 'повар')
+	p2 = Cook('повар', 'повар')
+	p1.ask(p2).whatIsProfession(maybe=getRandomProfession()).logCookAnswer().logMainProfession()
