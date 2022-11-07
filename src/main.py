@@ -8,12 +8,16 @@ def getRandomProfession():
 
 
 class Question:
+	actor1: 'Cook'
+	actor2: 'Cook'
 	def __init__(self, actor1: 'Cook', actor2: 'Cook'):
-		print(f'{actor1} спрашивает {actor2}а:'.capitalize())
+		self.actor1 = actor1
+		self.actor2 = actor2
+		print(f'{self.actor1} спрашивает {self.actor2}а:'.capitalize())
 
-	def whatIsProfession(self, maybe: str):
-		print(f'{p2}, какова твоя профессия?'.capitalize(), f'Ты {maybe}?')
-		return Reply(p2, maybe == p2.getProfession())
+	def whatIsProfession(self, maybe: str) -> 'Reply':
+		print(f'{self.actor1}, какова твоя профессия?'.capitalize(), f'Ты {maybe}?')
+		return Reply(self.actor2, maybe == self.actor2.getProfession())
 
 class Reply:
 	message: str
@@ -25,7 +29,7 @@ class Reply:
 		else:
 			self.message = f'Да, отвечает {sender}.'
 
-	def logCookAnswer(self):
+	def logCookAnswer(self) -> 'Cook':
 		print(self.message)
 		return self.sender
 
@@ -34,13 +38,13 @@ class Cook:
 		self.name = name
 		self.profession = profession
 
-	def ask(self, povar: 'Cook'):
+	def ask(self, povar: 'Cook') -> 'Question':
 		return Question(self, povar)
 
-	def getProfession(self):
+	def getProfession(self) -> str:
 		return self.profession
 
-	def logMainProfession(self):
+	def logMainProfession(self) -> None:
 		print(f'Моя главная профессия - {self.getProfession()}')
 
 	def __str__(self):
