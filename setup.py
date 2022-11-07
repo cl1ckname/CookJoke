@@ -5,7 +5,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name='CookJoke',
-    version='0.2.1',
+    version='0.3',
     license='MIT',
     author="Vasilev Ivan",
     author_email='ivan.vasilev.cn@gmail.com',
