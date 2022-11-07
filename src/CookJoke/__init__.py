@@ -1,5 +1,4 @@
 from random import choice, seed
-from CookJoke.laugh import getLaughString
 seed(1)
 
 PROFESSIONS = ['повар', 'милиционер', 'пожарник', "строитель", "бухгалтер"]
