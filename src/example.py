@@ -1,4 +1,5 @@
-from CookJoke import Cook, getRandomProfession, getLaughString
+from CookJoke import Cook, getRandomProfession
+from CookJoke.laugh import getLaughString
 
 if __name__ == '__main__':
 	p1 = Cook('повар', 'повар')
